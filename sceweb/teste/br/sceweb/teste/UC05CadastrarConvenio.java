@@ -44,7 +44,7 @@ public class UC05CadastrarConvenio {
 		empresa.setEndereco("rua taquari");
 		empresa.setTelefone("2222");
 		empresaDAO.adiciona(empresa);
-		//insere 4 convenios para avaliar para conflito de vigencia
+		//insere 4 convenios para avaliar conflito de vigencia
 		convenio = new Convenio("95117044000102","03/05/2016", "20/05/2016");
 		convenioDAO.adiciona(convenio);
 		convenio = new Convenio("81965361000174","03/05/2016", "20/05/2016");

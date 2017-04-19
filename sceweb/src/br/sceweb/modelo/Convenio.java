@@ -3,7 +3,6 @@ package br.sceweb.modelo;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-
 import org.apache.log4j.Logger;
 import org.joda.time.DateTime;
 import org.joda.time.Days;
@@ -96,8 +95,7 @@ public class Convenio {
 	/**
 	 * valida o formato da data
 	 * 
-	 * @param data
-	 *            no formato dd/MM/yyyy
+	 * @param data no formato dd/MM/yyyy
 	 * @return true se a data estiver no formato valido e false para formato
 	 *         invalido
 	 */
