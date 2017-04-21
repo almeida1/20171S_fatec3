@@ -66,7 +66,7 @@
 					if(msg == null)
 						msg="";
 				%>
-				<label><%=msg%></label>
+				<label id = "mensagem"><%=msg%></label>
 			</form>
 		</div>
 	</div>
