@@ -2,21 +2,14 @@ package br.sceweb.teste;
 
 import static org.junit.Assert.*;
 
-import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
-
-import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
 import org.junit.*;
-import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import br.sceweb.modelo.ConvenioDAO;
 import br.sceweb.modelo.Empresa;
 import br.sceweb.modelo.EmpresaDAO;
@@ -24,7 +17,6 @@ import br.sceweb.modelo.EmpresaDAO;
 public class UC05CadastrarConvenioGUI {
   private static WebDriver driver;
   private static String baseUrl;
-  private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
   private static FormConvenio formConvenio;
   private static EmpresaDAO empresaDAO;

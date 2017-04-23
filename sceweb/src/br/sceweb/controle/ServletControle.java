@@ -171,7 +171,7 @@ public class ServletControle extends HttpServlet {
 			Convenio convenio = new Convenio(cnpj, dataInicio, dataTermino);
 			codigoRetorno = convenioDAO.adiciona(convenio);
 			if (codigoRetorno == 0){
-				msg = "erro - cadastro nao realizado ";
+				msg = "erro - cadastro nao realizado";
 			} else {
 				msg = "cadastro realizado com sucesso";
 			}
