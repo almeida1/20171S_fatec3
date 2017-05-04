@@ -18,7 +18,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import br.sceweb.modelo.EmpresaDAO;
 /**
- * script de teste para chrome
+ * script de teste para chrome merge de conflito
  * @author esadv6
  *
  */
