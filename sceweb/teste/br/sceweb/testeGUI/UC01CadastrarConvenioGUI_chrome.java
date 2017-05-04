@@ -17,7 +17,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import br.sceweb.modelo.EmpresaDAO;
-
+/**
+ * script de teste para chrome
+ * @author esadv6
+ *
+ */
 public class UC01CadastrarConvenioGUI_chrome {
 	static private WebDriver driver;
 	static private String baseUrl;
