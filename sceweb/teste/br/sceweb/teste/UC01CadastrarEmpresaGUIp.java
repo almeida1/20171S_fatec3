@@ -10,6 +10,7 @@ import org.junit.runners.Parameterized.Parameters;
 
 import static org.junit.Assert.*;
 import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -56,14 +57,12 @@ public class UC01CadastrarEmpresaGUIp {
 	
 	@Before
 	public void setUp() throws Exception {
-
-		System.setProperty("webdriver.gecko.driver",
-				"C:/Users/esadv6/git/20171S_fatec3/sceweb/WebContent/WEB-INF/lib/geckodriver.exe");
-				//"C:/Users/Lab103/git/20171S_fatec2/sceweb/WebContent/WEB-INF/lib/geckodriver.exe");
-		driver = new FirefoxDriver();
+		System.setProperty("webdriver.chrome.driver", "C:/Users/professor/git/20171s_fatec31/sceweb/WebContent/WEB-INF/lib/chromedriver.exe");
+		driver = new ChromeDriver();
 		baseUrl = "http://localhost:8080/";
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		
+
+
 	}
 
 	@Test

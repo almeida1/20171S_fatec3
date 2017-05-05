@@ -10,6 +10,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -31,12 +32,18 @@ public class UC01CadastrarConvenioGUI {
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		System.setProperty("webdriver.gecko.driver",
-				"C:/Users/esadv6/git/20171S_fatec3/sceweb/WebContent/WEB-INF/lib/geckodriver.exe");
-
-		driver = new FirefoxDriver();
+		
+		System.setProperty("webdriver.chrome.driver", "C:/Users/professor/git/20171s_fatec31/sceweb/WebContent/WEB-INF/lib/chromedriver.exe");
+		driver = new ChromeDriver();
 		baseUrl = "http://localhost:8080/";
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+//		System.setProperty("webdriver.gecko.driver",
+//				"C:/Users/esadv6/git/20171S_fatec3/sceweb/WebContent/WEB-INF/lib/geckodriver.exe");
+//
+//		driver = new FirefoxDriver();
+//		baseUrl = "http://localhost:8080/";
+//		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 		empresaDAO = new EmpresaDAO();
 		empresa = new Empresa();
@@ -54,10 +61,13 @@ public class UC01CadastrarConvenioGUI {
 		ExcelUtils.setExcelFile(Constant.Path_TestData + Constant.File_TestData, "Planilha1");
 		formConvenio.abre();
 		
-		for (int i = 1; i < 3; i++) {
+		for (int i = 1; i < 4; i++) {
 			// linha x coluna
+			 
+			System.out.println("celula = " + ExcelUtils.getCellData(i, 3));
 			formConvenio.cadastra(ExcelUtils.getCellData(i, 3), ExcelUtils.getCellData(i, 4),
 					ExcelUtils.getCellData(i, 5));
+			Thread.sleep(5000);
 			try {
 				WebDriverWait wait = new WebDriverWait(driver, 10);
 				wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("mensagem")));
@@ -65,6 +75,7 @@ public class UC01CadastrarConvenioGUI {
 			} catch (Error e) {
 				verificationErrors.append(e.toString());
 			}
+			
 		}
 	}
 
