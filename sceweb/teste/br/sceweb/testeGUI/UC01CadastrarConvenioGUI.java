@@ -33,7 +33,7 @@ public class UC01CadastrarConvenioGUI {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		
-		System.setProperty("webdriver.chrome.driver", "C:/Users/professor/git/20171s_fatec31/sceweb/WebContent/WEB-INF/lib/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "C:/Users/esadv6/git/20171s_fatec3/sceweb/WebContent/WEB-INF/lib/chromedriver.exe");
 		driver = new ChromeDriver();
 		baseUrl = "http://localhost:8080/";
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -61,7 +61,7 @@ public class UC01CadastrarConvenioGUI {
 		ExcelUtils.setExcelFile(Constant.Path_TestData + Constant.File_TestData, "Planilha1");
 		formConvenio.abre();
 		
-		for (int i = 1; i < 4; i++) {
+		for (int i = 1; i < 3; i++) {
 			// linha x coluna
 			 
 			System.out.println("celula = " + ExcelUtils.getCellData(i, 3));
