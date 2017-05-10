@@ -22,7 +22,7 @@ import br.sceweb.modelo.EmpresaDAO;
  * @author esadv6
  *
  */
-public class UC01CadastrarConvenioGUI_chrome {
+public class UC05CadastrarEmpresaGUI_chrome {
 	static private WebDriver driver;
 	static private String baseUrl;
 	private StringBuffer verificationErrors = new StringBuffer();
