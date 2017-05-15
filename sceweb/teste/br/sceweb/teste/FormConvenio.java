@@ -27,7 +27,7 @@ public class FormConvenio {
 	public void excluir (String cnpj){
 		driver.findElement(By.id("campo")).clear();
 	    driver.findElement(By.id("campo")).sendKeys(cnpj);
-	    driver.findElement(By.id("botaoExcluir")).click();
+	    driver.findElement(By.name("btnExcluir")).click();
 	}
 }
 	

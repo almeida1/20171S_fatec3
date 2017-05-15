@@ -40,7 +40,7 @@ public class InterpretadorDeComandos {
 	public void fluxo() throws Exception {
 		String acao;
 		
-		for (int i = 1; i < 6; i++) {
+		for (int i = 1; i < 9; i++) {
 			// linha x coluna
 			 
 			System.out.println("celula = " + ExcelUtils.getCellData(i, 2));
@@ -73,6 +73,7 @@ public class InterpretadorDeComandos {
 				}
 			}
 			if (acao.equals("cadastrarConvenio")){
+				formConvenio = new FormConvenio(driver);
 				formConvenio.cadastra(ExcelUtils.getCellData(i, 4), ExcelUtils.getCellData(i, 5),
 						ExcelUtils.getCellData(i, 6));
 				
@@ -87,6 +88,7 @@ public class InterpretadorDeComandos {
 			}
 			
 			if (acao.equals("excluirEmpresa")){
+				formEmpresa = new FormEmpresa(driver);
 				formEmpresa.excluir(ExcelUtils.getCellData(i, 4));
 				
 				try {
@@ -99,6 +101,7 @@ public class InterpretadorDeComandos {
 				}
 			}
 			if (acao.equals("excluirConvenio")){
+				formConvenio = new FormConvenio(driver);
 				formConvenio.excluir(ExcelUtils.getCellData(i, 4));
 				
 				try {

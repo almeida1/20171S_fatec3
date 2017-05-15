@@ -59,7 +59,7 @@
 						<td colspan=2 id="botoes" align="center">
 						<input id="botao" type=button name=btnIncluir onclick=incluir() value=Confirmar>
 						<input id="botao" type=reset name=btnCancelar onclick=cancelar() value=Cancelar>
-					    <input id="botao" type=reset name=btnCancelar onclick=excluir() value=Excluir>
+					    <input id="botao" type=reset name=btnExcluir onclick=excluir() value=Excluir>
 					    </td>
 					</tr>
 				</table>
