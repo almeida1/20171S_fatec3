@@ -21,7 +21,7 @@ public class RoteiroDeNavegacao {
 	private StringBuffer verificationErrors = new StringBuffer();
 	private static FormConvenio formConvenio;
 	private static FormEmpresa formEmpresa;
-	private static Workbook workbook;
+	
 	public RoteiroDeNavegacao(){
 		inicializa();
 	}

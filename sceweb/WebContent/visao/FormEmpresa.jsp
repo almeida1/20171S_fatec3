@@ -22,7 +22,8 @@
 		document.formEmpresaIncluir.submit();
 	}
 	function excluir() {
-		history.go(-1)
+		document.formEmpresaIncluir.acao.value = "ExcluirEmpresa";
+		document.formEmpresaIncluir.submit();
 	}
 </script>
 </head>

@@ -33,5 +33,8 @@ public class UC03ExcluirEmpresa {
 	public void CT01UC03Excluir_empresa_com_sucesso() {
 		assertEquals(1,empresaDAO.exclui("89424232000180"));
 	}
-
+	@Test
+	public void CT01UC03Excluir_empresa_cnpj_invalido() {
+		assertEquals(0,empresaDAO.exclui("8942423200018"));
+	}
 }

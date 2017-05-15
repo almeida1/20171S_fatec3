@@ -4,14 +4,11 @@ package br.sceweb.teste;
 import java.util.concurrent.TimeUnit;
 import org.junit.*;
 import static org.junit.Assert.*;
-
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import br.sceweb.modelo.EmpresaDAO;
 
 public class UC01CadastrarEmpresaGUI {
