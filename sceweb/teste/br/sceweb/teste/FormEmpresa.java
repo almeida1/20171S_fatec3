@@ -38,5 +38,10 @@ public class FormEmpresa {
 		driver.findElement(By.id("botao")).click();
 		
 	}
-
+	public void excluir(String cnpj){
+		driver.findElement(By.name("txtCNPJ")).clear();
+		driver.findElement(By.name("txtCNPJ")).sendKeys(cnpj);
+		driver.findElement(By.name("btnExcluir")).click();
+	}
 }
+

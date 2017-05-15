@@ -18,7 +18,7 @@ public class RoteiroDeTeste {
 
 	@Test
 	public void test() throws Exception {
-		RoteiroDeNavegacao cmd = new RoteiroDeNavegacao();
+		InterpretadorDeComandos cmd = new InterpretadorDeComandos();
 		cmd.fluxo();
 	}
 

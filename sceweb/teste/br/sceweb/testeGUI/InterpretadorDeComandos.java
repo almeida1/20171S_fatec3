@@ -15,24 +15,24 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import br.sceweb.teste.FormConvenio;
 import br.sceweb.teste.FormEmpresa;
 
-public class RoteiroDeNavegacao {
+public class InterpretadorDeComandos {
 	private static WebDriver driver;
 	private static String baseUrl;
 	private StringBuffer verificationErrors = new StringBuffer();
 	private static FormConvenio formConvenio;
 	private static FormEmpresa formEmpresa;
 	
-	public RoteiroDeNavegacao(){
+	public InterpretadorDeComandos(){
 		inicializa();
 	}
 	public void inicializa(){
 		try {
-			ExcelUtils.setExcelFile(Constant.Path_TestData + Constant.File_TestData, "Planilha1");
+			ExcelUtils.setExcelFile(Constant.Path_TestDataHO + Constant.File_TestDataHO, "Planilha1");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.setProperty("webdriver.chrome.driver", "C:/Users/esadm4/git/20171s_fatec3/sceweb/WebContent/WEB-INF/lib/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", Constant.ChromeHO);
 		driver = new ChromeDriver();
 		baseUrl = "http://localhost:8080/";
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -86,7 +86,30 @@ public class RoteiroDeNavegacao {
 				}
 			}
 			
-			
+			if (acao.equals("excluirEmpresa")){
+				formEmpresa.excluir(ExcelUtils.getCellData(i, 4));
+				
+				try {
+					WebDriverWait wait = new WebDriverWait(driver, 10);
+					wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("mensagem")));
+					//assertEquals(ExcelUtils.getCellData(1, 7), driver.findElement(By.id("mensagem")).getText());
+					//driver.quit();
+				} catch (Error e) {
+					verificationErrors.append(e.toString());
+				}
+			}
+			if (acao.equals("excluirConvenio")){
+				formConvenio.excluir(ExcelUtils.getCellData(i, 4));
+				
+				try {
+					WebDriverWait wait = new WebDriverWait(driver, 10);
+					wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("mensagem")));
+					//assertEquals(ExcelUtils.getCellData(1, 7), driver.findElement(By.id("mensagem")).getText());
+					//driver.quit();
+				} catch (Error e) {
+					verificationErrors.append(e.toString());
+				}
+			}
 		}
 		driver.quit();
 	}

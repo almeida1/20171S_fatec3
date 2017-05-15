@@ -24,5 +24,10 @@ public class FormConvenio {
 	    driver.findElement(By.name("txtDtTermino")).sendKeys(dataF);
 	    driver.findElement(By.id("botao")).click();
 	}
-
+	public void excluir (String cnpj){
+		driver.findElement(By.id("campo")).clear();
+	    driver.findElement(By.id("campo")).sendKeys(cnpj);
+	    driver.findElement(By.id("botaoExcluir")).click();
+	}
 }
+	
