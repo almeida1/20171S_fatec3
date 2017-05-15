@@ -45,6 +45,7 @@ public class InterpretadorDeComandos {
 			 
 			System.out.println("celula = " + ExcelUtils.getCellData(i, 2));
 			Thread.sleep(5000);
+			//obtem da coluna C da planilha "roteiro_de_teste.xls" a ação a ser executada.
 			acao = ExcelUtils.getCellData(i, 2);
 			if (acao.equals("abreFormConvenio")){
 				formConvenio = new FormConvenio(driver);
