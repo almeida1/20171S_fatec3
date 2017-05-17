@@ -27,12 +27,12 @@ public class InterpretadorDeComandos {
 	}
 	public void inicializa(){
 		try {
-			ExcelUtils.setExcelFile(Constant.Path_TestDataHO + Constant.File_TestDataHO, "Planilha1");
+			ExcelUtils.setExcelFile(Constant.Path_TestData + Constant.File_TestDataHO, "Planilha1");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.setProperty("webdriver.chrome.driver", Constant.ChromeHO);
+		System.setProperty("webdriver.chrome.driver", Constant.ChromeHO2);
 		driver = new ChromeDriver();
 		baseUrl = "http://localhost:8080/";
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
