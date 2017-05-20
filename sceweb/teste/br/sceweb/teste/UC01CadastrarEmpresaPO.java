@@ -25,7 +25,7 @@ public class UC01CadastrarEmpresaPO {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		System.setProperty("webdriver.gecko.driver",
-				"C:/Users/Lab103/git/20171S_fatec3/sceweb/WebContent/WEB-INF/lib/geckodriver.exe");
+				"WebContent/WEB-INF/lib/geckodriver.exe");
 				
 		driver = new FirefoxDriver();
 		baseUrl = "http://localhost:8080/";
