@@ -32,7 +32,7 @@ public class InterpretadorDeComandos {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.setProperty("webdriver.chrome.driver", Constant.ChromeIP);
+		System.setProperty("webdriver.chrome.driver", Constant.ChromeZL);
 		driver = new ChromeDriver();
 		baseUrl = "http://localhost:8080/";
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

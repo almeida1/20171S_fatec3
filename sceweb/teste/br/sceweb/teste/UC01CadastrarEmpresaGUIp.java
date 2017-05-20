@@ -57,7 +57,7 @@ public class UC01CadastrarEmpresaGUIp {
 	
 	@Before
 	public void setUp() throws Exception {
-		System.setProperty("webdriver.chrome.driver", "C:/Users/esadv6/git/20171s_fatec3/sceweb/WebContent/WEB-INF/lib/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "C:/Users/Lab103/git/20171s_fatec3/sceweb/WebContent/WEB-INF/lib/chromedriver.exe");
 		driver = new ChromeDriver();
 		baseUrl = "http://localhost:8080/";
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

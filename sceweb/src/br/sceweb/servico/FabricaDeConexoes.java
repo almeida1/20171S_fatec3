@@ -13,7 +13,7 @@ public class FabricaDeConexoes {
 	String url = "jdbc:mysql://localhost/sceweb";
 	String driver = "com.mysql.jdbc.Driver";
 	String usuario = "root";
-	String senha = "";
+	String senha = "alunofatec";
 	
 	public FabricaDeConexoes (ConfiguraDB configura){
 		this.url = configura.getUrl();
