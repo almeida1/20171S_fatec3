@@ -1,4 +1,4 @@
-package br.sceweb.teste;
+package br.sceweb.testeGUI;
 
 import static org.junit.Assert.*;
 

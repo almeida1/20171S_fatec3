@@ -30,7 +30,7 @@ public class UC05CadastrarEmpresaGUI_chrome {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		
-		System.setProperty("webdriver.chrome.driver", "C:/Users/professor/git/20171s_fatec31/sceweb/WebContent/WEB-INF/lib/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "WebContent/WEB-INF/lib/chromedriver.exe");
 		driver = new ChromeDriver();
 		baseUrl = "http://localhost:8080/";
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

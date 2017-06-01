@@ -73,7 +73,7 @@ public class UC01CadastrarEmpresa {
 		String url = "jdbc:mysql://localhost/sceweb";
 		String driver = "com.mysql.jdbc.Driver";
 		String usuario = "root";
-		String senha = "alunofatec";
+		String senha = "";
 		configuraDB = new ConfiguraDB(url, driver, usuario, senha);
 		fabricaDeConexoes = new FabricaDeConexoes(configuraDB);
 		assertNotNull(fabricaDeConexoes.getConnection());
@@ -84,7 +84,7 @@ public class UC01CadastrarEmpresa {
 		String url = "jdbc:mysql://localhost/sceweb1";
 		String driver = "com.mysql.jdbc.Driver";
 		String usuario = "root";
-		String senha = "alunofatec";
+		String senha = "";
 		configuraDB = new ConfiguraDB(url, driver, usuario, senha);
 		fabricaDeConexoes = new FabricaDeConexoes(configuraDB);
 		try {

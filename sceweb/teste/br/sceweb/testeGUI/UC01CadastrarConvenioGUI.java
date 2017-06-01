@@ -18,7 +18,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import br.sceweb.modelo.ConvenioDAO;
 import br.sceweb.modelo.Empresa;
 import br.sceweb.modelo.EmpresaDAO;
-import br.sceweb.teste.FormConvenio;
 
 public class UC01CadastrarConvenioGUI {
 
@@ -33,7 +32,7 @@ public class UC01CadastrarConvenioGUI {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		
-		System.setProperty("webdriver.chrome.driver", "C:/Users/esadv6/git/20171s_fatec3/sceweb/WebContent/WEB-INF/lib/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "WebContent/WEB-INF/lib/chromedriver.exe");
 		driver = new ChromeDriver();
 		baseUrl = "http://localhost:8080/";
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

@@ -1,4 +1,4 @@
-package br.sceweb.teste;
+package br.sceweb.testeGUI;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

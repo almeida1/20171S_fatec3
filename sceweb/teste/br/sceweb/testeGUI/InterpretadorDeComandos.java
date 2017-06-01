@@ -11,10 +11,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-
-import br.sceweb.teste.FormConvenio;
-import br.sceweb.teste.FormEmpresa;
-
 public class InterpretadorDeComandos {
 	private static WebDriver driver;
 	private static String baseUrl;
@@ -32,7 +28,7 @@ public class InterpretadorDeComandos {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.setProperty("webdriver.chrome.driver", Constant.ChromeZL);
+		System.setProperty("webdriver.chrome.driver", Constant.Chrome);
 		driver = new ChromeDriver();
 		baseUrl = "http://localhost:8080/";
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
