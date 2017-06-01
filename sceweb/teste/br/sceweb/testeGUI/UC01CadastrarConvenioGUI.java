@@ -57,7 +57,7 @@ public class UC01CadastrarConvenioGUI {
 
 	@Test
 	public void testUC05CadastrarConvenio() throws Exception {
-		ExcelUtils.setExcelFile(Constant.Path_TestData + Constant.File_TestData, "Planilha1");
+		ExcelUtils.setExcelFile(Constant.Path_TestData + Constant.File_TestData2, "Planilha1");
 		formConvenio.abre();
 		
 		for (int i = 1; i < 3; i++) {
