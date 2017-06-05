@@ -16,7 +16,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import br.sceweb.modelo.EmpresaDAO;
+import br.sceweb.modelo.MySQLEmpresaDAO;
 /**
  * script de teste para chrome merge de conflito
  * @author esadv6
@@ -42,7 +42,7 @@ public class UC05CadastrarEmpresaGUI_chrome {
 
 	@After
 	public void tearDown() throws Exception {
-		EmpresaDAO empresaDAO = new EmpresaDAO();
+		MySQLEmpresaDAO empresaDAO = new MySQLEmpresaDAO();
 		empresaDAO.exclui("50658639000137");
 		driver.quit();
 		String verificationErrorString = verificationErrors.toString();

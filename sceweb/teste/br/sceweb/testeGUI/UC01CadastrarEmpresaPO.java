@@ -14,7 +14,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import br.sceweb.modelo.EmpresaDAO;
+import br.sceweb.modelo.DAOFactory;
+import br.sceweb.modelo.MySQLEmpresaDAO;
 
 public class UC01CadastrarEmpresaPO {
 	private static FormEmpresa formEmpresa;
@@ -39,7 +40,8 @@ public class UC01CadastrarEmpresaPO {
 	}
 	@After
 	public void tearDown() throws Exception {
-		EmpresaDAO empresaDAO = new EmpresaDAO();
+		DAOFactory fabricaMySQL = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
+		MySQLEmpresaDAO empresaDAO = fabricaMySQL.getEmpresaDAO();
 		empresaDAO.exclui("50658639000137");
 		driver.quit();
 		String verificationErrorString = verificationErrors.toString();

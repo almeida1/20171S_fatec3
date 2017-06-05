@@ -7,20 +7,23 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import br.sceweb.modelo.DAOFactory;
 import br.sceweb.modelo.Empresa;
-import br.sceweb.modelo.EmpresaDAO;
+import br.sceweb.modelo.MySQLEmpresaDAO;
 import br.sceweb.servico.ConfiguraDB;
 import br.sceweb.servico.FabricaDeConexoes;
 
 public class UC01CadastrarEmpresa {
-	static EmpresaDAO empresaDAO;
+	
+	static MySQLEmpresaDAO empresaDAO;
 	static Empresa empresa;
 	static ConfiguraDB configuraDB;
 	static FabricaDeConexoes fabricaDeConexoes;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		empresaDAO = new EmpresaDAO();
+		DAOFactory fabricaMySQL = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
+		empresaDAO = fabricaMySQL.getEmpresaDAO();
 		empresa = new Empresa();
 		empresa.setNomeDaEmpresa("empresa x");
 		empresa.setCnpj("89424232000180");

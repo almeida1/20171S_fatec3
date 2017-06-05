@@ -10,8 +10,8 @@ import com.mysql.jdbc.PreparedStatement;
 
 import br.sceweb.servico.FabricaDeConexoes;
 
-public class EmpresaDAO {
-	Logger logger = Logger.getLogger(EmpresaDAO.class);
+public class MySQLEmpresaDAO implements IEmpresaDAO{
+	Logger logger = Logger.getLogger(MySQLEmpresaDAO.class);
 	public int adiciona(Empresa empresa){
 		PreparedStatement ps;
 		int codigoRetorno=0;
@@ -49,7 +49,7 @@ public class EmpresaDAO {
 	
 	}
 	
-	public static Empresa consultaEmpresa(String cnpj) {
+	public Empresa consultaEmpresa(String cnpj) {
 		Empresa empresa = null;
 		java.sql.PreparedStatement ps;
 		try (Connection conn = new FabricaDeConexoes().getConnection()) {

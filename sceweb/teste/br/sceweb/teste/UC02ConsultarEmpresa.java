@@ -6,18 +6,21 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import br.sceweb.modelo.DAOFactory;
 import br.sceweb.modelo.Empresa;
-import br.sceweb.modelo.EmpresaDAO;
+import br.sceweb.modelo.MySQLEmpresaDAO;
 
 public class UC02ConsultarEmpresa {
 
 	private static Empresa empresa ;
-	private static EmpresaDAO empresaDAO;
+	private static MySQLEmpresaDAO empresaDAO;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+		DAOFactory fabricaMySQL = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
+		empresaDAO = fabricaMySQL.getEmpresaDAO();
 		empresa = new Empresa();
-		empresaDAO = new EmpresaDAO();
+		
 		empresa.setNomeDaEmpresa("empresax");
 		empresa.setCnpj("89424232000180");
 		empresa.setNomeFantasia("empresax");

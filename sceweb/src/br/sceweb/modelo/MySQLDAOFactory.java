@@ -3,24 +3,24 @@ package br.sceweb.modelo;
 //Cloudscape concrete DAO Factory implementation
 import java.sql.*;
 
+import br.sceweb.servico.FabricaDeConexoes;
+
 public class MySQLDAOFactory extends DAOFactory {
-	public static final String DRIVER = "COM.cloudscape.core.RmiJdbcDriver";
-	public static final String DBURL = "jdbc:cloudscape:rmi://localhost:1099/CoreJ2EEDB";
+	
 
-	// method to create Cloudscape connections
+	// obtem uma conexao para MySQL
 	public static Connection createConnection() {
-		Connection c = null;
-		return c;
+		return new FabricaDeConexoes().getConnection();
 	}
 
-	public ConvenioDAO getConvenioDAO() {
-		// CloudscapeCustomerDAO implements CustomerDAO
-		return new ConvenioDAO();
+	public MySQLConvenioDAO getConvenioDAO() {
+		
+		return new MySQLConvenioDAO();
 	}
 
-	public EmpresaDAO getEmpresaDAO() {
-		// CloudscapeAccountDAO implements AccountDAO
-		return new EmpresaDAO();
+	public MySQLEmpresaDAO getEmpresaDAO() {
+		
+		return new MySQLEmpresaDAO();
 	}
 
 }

@@ -12,23 +12,26 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import br.sceweb.modelo.Convenio;
-import br.sceweb.modelo.ConvenioDAO;
+import br.sceweb.modelo.DAOFactory;
+import br.sceweb.modelo.MySQLConvenioDAO;
 import br.sceweb.modelo.Empresa;
-import br.sceweb.modelo.EmpresaDAO;
+import br.sceweb.modelo.MySQLEmpresaDAO;
 
 public class UC05CadastrarConvenio {
-	static ConvenioDAO convenioDAO;
+	
+	static MySQLConvenioDAO convenioDAO;
 	static Convenio convenio;
 	static Convenio novoConvenio;
-	static EmpresaDAO empresaDAO;
+	static MySQLEmpresaDAO empresaDAO;
 	static Empresa empresa;
 	static String cnpj;
 	static List<Convenio> listaDeConvenios;
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+		DAOFactory fabricaMySQL = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
+		empresaDAO = fabricaMySQL.getEmpresaDAO();
 		listaDeConvenios = new ArrayList<Convenio>();
-		empresaDAO = new EmpresaDAO();
-		convenioDAO = new ConvenioDAO();
+		convenioDAO = fabricaMySQL.getConvenioDAO();
 		empresa = new Empresa();
 		empresa.setNomeDaEmpresa("empresa x");
 		empresa.setCnpj("81965361000174");

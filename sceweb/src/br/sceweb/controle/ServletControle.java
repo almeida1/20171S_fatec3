@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 
 import br.sceweb.modelo.Convenio;
-import br.sceweb.modelo.ConvenioDAO;
+import br.sceweb.modelo.MySQLConvenioDAO;
 import br.sceweb.modelo.Empresa;
-import br.sceweb.modelo.EmpresaDAO;
+import br.sceweb.modelo.MySQLEmpresaDAO;
 
 /**
  * Servlet implementation class ServletControle
@@ -20,7 +20,7 @@ public class ServletControle extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	Logger logger = Logger.getLogger(ServletControle.class);
 	String mensagem = "";
-	EmpresaDAO empresaDAO;
+	MySQLEmpresaDAO empresaDAO;
 	String cnpjParaExclusao = "";// seta o cnpj para exclusao
 
 	/**
@@ -153,7 +153,7 @@ public class ServletControle extends HttpServlet {
 			String telefone) {
 		String msg = "";
 		Empresa empresa = new Empresa();
-		EmpresaDAO empresaDAO = new EmpresaDAO();
+		MySQLEmpresaDAO empresaDAO = new MySQLEmpresaDAO();
 		try {
 			empresa.setCnpj(cnpj);
 			empresa.setNomeDaEmpresa(nomeDaEmpresa);
@@ -170,14 +170,14 @@ public class ServletControle extends HttpServlet {
 
 	public Empresa consulta(String cnpj) {
 		logger.info("consulta empresa 2 = " + cnpj);
-		EmpresaDAO empresaDAO = new EmpresaDAO();
+		MySQLEmpresaDAO empresaDAO = new MySQLEmpresaDAO();
 		return empresaDAO.consultaEmpresa(cnpj);
 	}
 
 	public String excluirEmpresa(String cnpj) {
 		String msg = "";
 		int codigoRetorno = 0;
-		EmpresaDAO empresaDAO = new EmpresaDAO();
+		MySQLEmpresaDAO empresaDAO = new MySQLEmpresaDAO();
 		try {
 			codigoRetorno = empresaDAO.exclui(cnpj);
 			if (codigoRetorno == 1)
@@ -193,7 +193,7 @@ public class ServletControle extends HttpServlet {
 	public String excluirConvenio(String cnpj) {
 		String msg = "";
 		int codigoRetorno = 0;
-		ConvenioDAO convenioDAO = new ConvenioDAO();
+		MySQLConvenioDAO convenioDAO = new MySQLConvenioDAO();
 		try {
 			codigoRetorno = convenioDAO.exclui(cnpj);
 			if (codigoRetorno == 1)
@@ -209,7 +209,7 @@ public class ServletControle extends HttpServlet {
 	public String cadastrarConvenio(String cnpj, String dataInicio, String dataTermino) {
 		String msg = "";
 		int codigoRetorno = 0;
-		ConvenioDAO convenioDAO = new ConvenioDAO();
+		MySQLConvenioDAO convenioDAO = new MySQLConvenioDAO();
 		try {
 			Convenio convenio = new Convenio(cnpj, dataInicio, dataTermino);
 			codigoRetorno = convenioDAO.adiciona(convenio);

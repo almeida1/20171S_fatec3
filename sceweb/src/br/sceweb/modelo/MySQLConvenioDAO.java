@@ -20,8 +20,8 @@ import br.sceweb.servico.FabricaDeConexoes;
  * @author edson
  *
  */
-public class ConvenioDAO {
-	Logger logger = Logger.getLogger(ConvenioDAO.class);
+public class MySQLConvenioDAO implements IConvenioDAO{
+	Logger logger = Logger.getLogger(MySQLConvenioDAO.class);
 
 	/**
 	 * inclui um convenio na base de dados verifica se existe conflito no
