@@ -13,6 +13,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import br.sceweb.modelo.MySQLConvenioDAO;
 import br.sceweb.modelo.DAOFactory;
 import br.sceweb.modelo.Empresa;
+import br.sceweb.modelo.IConvenioDAO;
+import br.sceweb.modelo.IEmpresaDAO;
 import br.sceweb.modelo.MySQLEmpresaDAO;
 
 public class UC05CadastrarConvenioGUI {
@@ -20,7 +22,7 @@ public class UC05CadastrarConvenioGUI {
   private static String baseUrl;
   private StringBuffer verificationErrors = new StringBuffer();
   private static FormConvenio formConvenio;
-  private static MySQLEmpresaDAO empresaDAO;
+  private static IEmpresaDAO empresaDAO;
   private static Empresa empresa;
   @BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -30,8 +32,9 @@ public class UC05CadastrarConvenioGUI {
 		driver = new FirefoxDriver();
 		baseUrl = "http://localhost:8080/";
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		DAOFactory fabricaDAO = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
+		empresaDAO = fabricaDAO.getEmpresaDAO();
 		
-		empresaDAO = new MySQLEmpresaDAO();
 		empresa = new Empresa();
 		empresa.setNomeDaEmpresa("Open Informatica Ltda.");
 		empresa.setCnpj("89424232000180");
@@ -57,8 +60,8 @@ public class UC05CadastrarConvenioGUI {
 
   @After
   public void tearDown() throws Exception {
-	  DAOFactory fabricaMySQL = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
-		MySQLConvenioDAO convenioDAO = fabricaMySQL.getConvenioDAO();
+	DAOFactory fabricaDAO = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
+	IConvenioDAO convenioDAO = fabricaDAO.getConvenioDAO();
 	convenioDAO.exclui("89424232000180");
 	empresaDAO.exclui("89424232000180");
     driver.quit();

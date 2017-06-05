@@ -12,19 +12,21 @@ import br.sceweb.modelo.Convenio;
 import br.sceweb.modelo.DAOFactory;
 import br.sceweb.modelo.MySQLConvenioDAO;
 import br.sceweb.modelo.Empresa;
+import br.sceweb.modelo.IConvenioDAO;
+import br.sceweb.modelo.IEmpresaDAO;
 import br.sceweb.modelo.MySQLEmpresaDAO;
 
 public class UC07ExcluirConvenio {
-	static MySQLConvenioDAO convenioDAO;
+	static IConvenioDAO convenioDAO;
 	static Convenio convenio;
-	static MySQLEmpresaDAO empresaDAO;
+	static IEmpresaDAO empresaDAO;
 	static Empresa empresa;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		DAOFactory fabricaMySQL = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
-		empresaDAO = fabricaMySQL.getEmpresaDAO();
-		convenioDAO = fabricaMySQL.getConvenioDAO();
+		DAOFactory fabricaDAO = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
+		empresaDAO = fabricaDAO.getEmpresaDAO();
+		convenioDAO = fabricaDAO.getConvenioDAO();
 		empresa = new Empresa();
 		
 		empresa.setNomeDaEmpresa("empresa x");

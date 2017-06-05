@@ -15,6 +15,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import br.sceweb.modelo.DAOFactory;
+import br.sceweb.modelo.IEmpresaDAO;
 import br.sceweb.modelo.MySQLEmpresaDAO;
 
 public class UC01CadastrarEmpresaPO {
@@ -40,8 +41,8 @@ public class UC01CadastrarEmpresaPO {
 	}
 	@After
 	public void tearDown() throws Exception {
-		DAOFactory fabricaMySQL = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
-		MySQLEmpresaDAO empresaDAO = fabricaMySQL.getEmpresaDAO();
+		DAOFactory fabricaDAO = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
+		IEmpresaDAO empresaDAO = fabricaDAO.getEmpresaDAO();
 		empresaDAO.exclui("50658639000137");
 		driver.quit();
 		String verificationErrorString = verificationErrors.toString();

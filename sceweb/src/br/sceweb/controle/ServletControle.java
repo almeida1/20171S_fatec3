@@ -11,6 +11,7 @@ import org.apache.log4j.Logger;
 import br.sceweb.modelo.Convenio;
 import br.sceweb.modelo.MySQLConvenioDAO;
 import br.sceweb.modelo.Empresa;
+import br.sceweb.modelo.EmpresaService;
 import br.sceweb.modelo.MySQLEmpresaDAO;
 
 /**
@@ -153,14 +154,14 @@ public class ServletControle extends HttpServlet {
 			String telefone) {
 		String msg = "";
 		Empresa empresa = new Empresa();
-		MySQLEmpresaDAO empresaDAO = new MySQLEmpresaDAO();
+		EmpresaService empresaService = new EmpresaService();
 		try {
 			empresa.setCnpj(cnpj);
 			empresa.setNomeDaEmpresa(nomeDaEmpresa);
 			empresa.setNomeFantasia(nomeFantasia);
 			empresa.setEndereco(endereco);
 			empresa.setTelefone(telefone);
-			empresaDAO.adiciona(empresa);
+			empresaService.cadastrarEmpresa(empresa);
 			msg = "cadastro realizado com sucesso";
 		} catch (Exception e) {
 			msg = e.getMessage();

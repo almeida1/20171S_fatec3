@@ -15,23 +15,25 @@ import br.sceweb.modelo.Convenio;
 import br.sceweb.modelo.DAOFactory;
 import br.sceweb.modelo.MySQLConvenioDAO;
 import br.sceweb.modelo.Empresa;
+import br.sceweb.modelo.IConvenioDAO;
+import br.sceweb.modelo.IEmpresaDAO;
 import br.sceweb.modelo.MySQLEmpresaDAO;
 
 public class UC05CadastrarConvenio {
 	
-	static MySQLConvenioDAO convenioDAO;
+	static IConvenioDAO convenioDAO;
 	static Convenio convenio;
 	static Convenio novoConvenio;
-	static MySQLEmpresaDAO empresaDAO;
+	static IEmpresaDAO empresaDAO;
 	static Empresa empresa;
 	static String cnpj;
 	static List<Convenio> listaDeConvenios;
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		DAOFactory fabricaMySQL = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
-		empresaDAO = fabricaMySQL.getEmpresaDAO();
+		DAOFactory fabricaDAO = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
+		empresaDAO = fabricaDAO.getEmpresaDAO();
 		listaDeConvenios = new ArrayList<Convenio>();
-		convenioDAO = fabricaMySQL.getConvenioDAO();
+		convenioDAO = fabricaDAO.getConvenioDAO();
 		empresa = new Empresa();
 		empresa.setNomeDaEmpresa("empresa x");
 		empresa.setCnpj("81965361000174");

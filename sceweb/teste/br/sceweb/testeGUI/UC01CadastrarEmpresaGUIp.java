@@ -16,6 +16,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import br.sceweb.modelo.DAOFactory;
+import br.sceweb.modelo.IEmpresaDAO;
 import br.sceweb.modelo.MySQLEmpresaDAO;
 
 @RunWith(Parameterized.class)
@@ -99,8 +100,8 @@ public class UC01CadastrarEmpresaGUIp {
 
 	@After
 	public void tearDown() throws Exception {
-		DAOFactory fabricaMySQL = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
-		MySQLEmpresaDAO empresaDAO = fabricaMySQL.getEmpresaDAO();
+		DAOFactory fabricaDAO = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
+		IEmpresaDAO empresaDAO = fabricaDAO.getEmpresaDAO();
 		empresaDAO.exclui("50658639000137");
 		empresaDAO.exclui("56241412000178");
 		driver.quit();

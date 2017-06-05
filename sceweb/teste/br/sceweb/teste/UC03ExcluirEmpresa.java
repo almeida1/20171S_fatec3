@@ -8,15 +8,16 @@ import org.junit.Test;
 
 import br.sceweb.modelo.DAOFactory;
 import br.sceweb.modelo.Empresa;
-import br.sceweb.modelo.MySQLEmpresaDAO;
+import br.sceweb.modelo.IEmpresaDAO;
+
 
 public class UC03ExcluirEmpresa {
 	private static Empresa empresa ;
-	private static MySQLEmpresaDAO empresaDAO;
+	private static IEmpresaDAO empresaDAO;
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		DAOFactory fabricaMySQL = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
-		empresaDAO = fabricaMySQL.getEmpresaDAO();
+		DAOFactory fabricaDAO = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
+		empresaDAO = fabricaDAO.getEmpresaDAO();
 		empresa = new Empresa();
 		empresa.setNomeDaEmpresa("empresax");
 		empresa.setCnpj("89424232000180");

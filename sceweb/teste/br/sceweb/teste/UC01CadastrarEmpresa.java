@@ -9,21 +9,22 @@ import org.junit.Test;
 
 import br.sceweb.modelo.DAOFactory;
 import br.sceweb.modelo.Empresa;
+import br.sceweb.modelo.IEmpresaDAO;
 import br.sceweb.modelo.MySQLEmpresaDAO;
 import br.sceweb.servico.ConfiguraDB;
 import br.sceweb.servico.FabricaDeConexoes;
 
 public class UC01CadastrarEmpresa {
 	
-	static MySQLEmpresaDAO empresaDAO;
+	static IEmpresaDAO empresaDAO;
 	static Empresa empresa;
 	static ConfiguraDB configuraDB;
 	static FabricaDeConexoes fabricaDeConexoes;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		DAOFactory fabricaMySQL = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
-		empresaDAO = fabricaMySQL.getEmpresaDAO();
+		DAOFactory fabricaDAO = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
+		empresaDAO = fabricaDAO.getEmpresaDAO();
 		empresa = new Empresa();
 		empresa.setNomeDaEmpresa("empresa x");
 		empresa.setCnpj("89424232000180");
