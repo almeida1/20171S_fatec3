@@ -74,10 +74,10 @@ public class UC01CadastrarEmpresa {
 
 	@Test
 	public void CT05_conecta_db_com_sucesso() {
-		String url = "jdbc:mysql://localhost/sceweb";
+		String url = "jdbc:mysql://mysql8.db4free.net:3307/sceweb";
 		String driver = "com.mysql.jdbc.Driver";
-		String usuario = "root";
-		String senha = "";
+		String usuario = "alunos";
+		String senha = "alunos";
 		configuraDB = new ConfiguraDB(url, driver, usuario, senha);
 		fabricaDeConexoes = new FabricaDeConexoes(configuraDB);
 		assertNotNull(fabricaDeConexoes.getConnection());
@@ -85,16 +85,17 @@ public class UC01CadastrarEmpresa {
 
 	@Test
 	public void CT06_conecta_db_com_erro_url() {
-		String url = "jdbc:mysql://localhost/sceweb1";
+		String url = "jdbc:mysql://mysql8.db4free.net:3307/sceweb1";
 		String driver = "com.mysql.jdbc.Driver";
-		String usuario = "root";
-		String senha = "";
+		String usuario = "alunos";
+		String senha = "alunos";
 		configuraDB = new ConfiguraDB(url, driver, usuario, senha);
 		fabricaDeConexoes = new FabricaDeConexoes(configuraDB);
 		try {
 			fabricaDeConexoes.getConnection();
 		} catch (Exception e) {
-			assertEquals("com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown database 'sceweb1'", e.getMessage());
+			assertEquals("com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Access denied for user 'alunos'@'%' to database 'sceweb1'", e.getMessage());
+			
 		}
 	}
 
